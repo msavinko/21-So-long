@@ -6,7 +6,7 @@
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 17:14:31 by marlean           #+#    #+#             */
-/*   Updated: 2022/02/14 16:39:06 by marlean          ###   ########.fr       */
+/*   Updated: 2022/02/22 12:30:01 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,34 @@
 # define LIBFT_H
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdarg.h>
 
 typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
 }					t_list;
+
+typedef struct s_param
+{
+	int				count;
+	unsigned int	x;
+	int				num;
+	int				flag_plus;
+	int				flag_space;
+}	t_param;
+
+int		ft_printf(const char *format, ...);
+int		ft_putchar(char c);
+int		ft_putstr(char *s);
+int		ft_nbrlen(unsigned long int nb, int dec);
+int		ft_putnbr(int n);
+int		ft_unsigned(unsigned int nb);
+int		ft_hex(unsigned int p, int flag);
+int		ft_point_hex(unsigned long int p);
+int		ft_sharp(unsigned int x, char format);
+void	ft_space_plus(const char ***format, int *flag_plus, int *flag_space);
+
 
 int		get_next_line(char **line);
 int		ft_atoi(const char *str);

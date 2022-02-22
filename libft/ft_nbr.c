@@ -6,11 +6,11 @@
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 20:11:17 by marlean           #+#    #+#             */
-/*   Updated: 2021/11/26 13:07:26 by marlean          ###   ########.fr       */
+/*   Updated: 2022/02/22 12:32:05 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 static void	ft_recurs_putnbr(int nb)
 {

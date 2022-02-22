@@ -6,11 +6,11 @@
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 13:48:44 by marlean           #+#    #+#             */
-/*   Updated: 2021/11/26 16:03:25 by marlean          ###   ########.fr       */
+/*   Updated: 2022/02/22 12:31:49 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 static t_param	param_init(void)
 {
