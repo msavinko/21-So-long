@@ -6,7 +6,7 @@
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 17:14:31 by marlean           #+#    #+#             */
-/*   Updated: 2022/02/22 12:30:01 by marlean          ###   ########.fr       */
+/*   Updated: 2022/02/24 12:21:01 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef struct s_param
 	int				num;
 	int				flag_plus;
 	int				flag_space;
-}	t_param;
+}					t_param;
 
 int		ft_printf(const char *format, ...);
 int		ft_putchar(char c);
@@ -41,8 +41,6 @@ int		ft_hex(unsigned int p, int flag);
 int		ft_point_hex(unsigned long int p);
 int		ft_sharp(unsigned int x, char format);
 void	ft_space_plus(const char ***format, int *flag_plus, int *flag_space);
-
-
 int		get_next_line(char **line);
 int		ft_atoi(const char *str);
 void	ft_bzero(void *str, size_t size);

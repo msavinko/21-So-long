@@ -6,7 +6,7 @@
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 10:42:36 by marlean           #+#    #+#             */
-/*   Updated: 2022/02/22 10:45:54 by marlean          ###   ########.fr       */
+/*   Updated: 2022/02/24 12:22:37 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ int	ft_sl_gnl(char **line, int fd)
 	i = 0;
 	*line = buffer;
 	result = read(fd, &buffer[i], 1);
-	while (result > 0 && buffer[i] != '\n')
+	while (result > 0 && buffer[i] != '\0')
 	{
 		i++;
-		result = read(fd, &buffer[i], 1);
+		result += read(fd, &buffer[i], 1);
 	}	
 	buffer[i] = '\0';
 	return (result);

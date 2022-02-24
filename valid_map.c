@@ -6,69 +6,75 @@
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 12:12:33 by marlean           #+#    #+#             */
-/*   Updated: 2022/02/22 17:03:41 by marlean          ###   ########.fr       */
+/*   Updated: 2022/02/24 12:22:07 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	ft_sl_error()
-{
-	ft_printf("Error %d: %s\n", errno, strerror(errno));
-	perror("Error message");
-	exit(errno);
-}
-
 void	ft_arg_is_ber(char *arg)
 {
 	int	len;
 
-	
+	if (!arg)
+		ft_sl_error(8);
 	len = ft_strlen(arg);
-
 	//error 21 if you are trying to open a directory.
-
-	if (strncmp(&arg[len-4], ".ber", 4) == 0)
-		ft_printf("IT'S OK\n");
-	else
-		ft_sl_error(); // operation not permitted
-
+	if (strncmp(&arg[len - 4], ".ber", 4))
+		ft_sl_error(8);
 }
 
+void	ft_if_sq(t_map *map_inf)
+{
+	int	i;
 
-// static int	valid_extension(char *path)
-// {	
-// 	const char	*ext;
-
-// 	if (!path)
-// 		return (1);
-// 	ext = ft_strchr(path, '.');
-// 	if (ft_strncmp(ext, ".ber", 5))
-// 		return (1);
-// 	return (0);
-// }
+	i = 0;
+	map_inf->line_len = ft_strlen(map_inf->map[i]);
+	while (map_inf->map[i])
+		i++;
+	map_inf->map_h = i;
+	i = 1;
+	while (i < map_inf->map_h)
+	{
+		if (map_inf->line_len == (int)ft_strlen(map_inf->map[i]))
+			i++;
+		else
+			ft_sl_error(8);
+	}
+}
 
 void	ft_validation(char *arg)
 {
-	int		fd_map;
-	char	*line;
+	t_map	map_inf;
 	int		i;
-//	char	*map;
 
 	i = 0;
-	line = NULL;
+	map_inf.map = NULL;
+	map_inf.line = NULL;
 	ft_arg_is_ber(arg);
-	fd_map = open(arg, O_RDONLY);
-	if (fd_map == -1)
-		ft_sl_error(); //bad file descriptor error
-	while (ft_sl_gnl(&line, fd_map) > 0)
+	map_inf.fd_map = open(arg, O_RDONLY);
+	if (map_inf.fd_map == -1)
+		ft_sl_error(9);
+	map_inf.read_result = ft_sl_gnl(&map_inf.line, map_inf.fd_map);
+	if (map_inf.read_result <= 0)
+		ft_sl_error(8);
+	map_inf.map = ft_split(map_inf.line, '\n');
+	if (map_inf.map == NULL)
+		ft_sl_error(12);
+	ft_if_sq(&map_inf);
+//ft_printf("line_len: %d\nmap_height: %d\n", map_inf->line_len, map_inf->map_h);
+//~~~~~~~~~~~~~FREE LINE~~~~~~~~~~~~~~
+	free(map_inf.line);
+	map_inf.line = NULL;
+//+++++++++++++PRINT AND FREE MAP++++++++++++++
+	i = 0;
+	ft_printf("=========================================\n");
+	while (i < map_inf.map_h)
 	{
-		ft_printf("%s\n", line);
-
-		free(line);
-		line = NULL;
-	}
-	ft_printf("%s\n", line);
-	free(line);
-	line = NULL;
+		ft_printf("%s\n", map_inf.map[i]);
+		free(map_inf.map[i]);
+		i++;
+	}	
+	free(map_inf.map);
+	map_inf.map = NULL;
 }
