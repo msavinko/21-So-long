@@ -6,7 +6,7 @@
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 18:11:38 by marlean           #+#    #+#             */
-/*   Updated: 2022/02/24 12:23:27 by marlean          ###   ########.fr       */
+/*   Updated: 2022/02/24 14:52:40 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,13 @@
 # include <errno.h>
 # include "libft/libft.h"
 
+typedef struct s_coor
+{
+	int	quan;
+	int	x;
+	int	y;
+}	t_coor;
+
 typedef struct s_map
 {
 	int		fd_map;
@@ -31,14 +38,23 @@ typedef struct s_map
 	char	*line;
 	int		map_h;
 	int		read_result;
+	t_coor	c;
+	t_coor	e;
+	t_coor	p;
 }	t_map;
 
 int		ft_sl_gnl(char **line, int fd);
-void	ft_validation(char *arg);
-void	ft_arg_is_ber(char *arg);
+
+void	ft_read_map(t_map *map_inf, char *arg);
 void	ft_sl_error(int errcode);
-//void	ft_if_sq(char **map, int line_len, int map_height);
+void	ft_free_map(t_map *map_inf);
+
+void	ft_arg_is_ber(char *arg);
+void	ft_validation(t_map *map_inf);
 void	ft_if_sq(t_map *map_inf);
+void	ft_no_walls(t_map *map_inf);
+void	ft_correct_symb(t_map *map_inf);
+void	ft_nsymb(t_map *map_inf);
 
 #endif
 //ERROR CODES

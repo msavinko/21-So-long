@@ -4,7 +4,7 @@ HEADER_SL	=	so_long.h
 
 LIBFT		=	libft/libft.a
 
-SRCS_SL		=	so_long.c sl_gnl.c valid_map.c
+SRCS_SL		=	so_long.c map.c valid_utils.c
 
 OBJS_SL		=	$(SRCS_SL:%.c=%.o)
 
