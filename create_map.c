@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map.c                                              :+:      :+:    :+:   */
+/*   create_map.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 10:42:36 by marlean           #+#    #+#             */
-/*   Updated: 2022/02/24 15:01:05 by marlean          ###   ########.fr       */
+/*   Updated: 2022/02/24 16:52:43 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,6 @@ int	ft_sl_gnl(char **line, int fd)
 
 void	ft_read_map(t_map *map_inf, char *arg)
 {
-	map_inf->map = NULL;
-	map_inf->line = NULL;
 	map_inf->fd_map = open(arg, O_RDONLY);
 	if (map_inf->fd_map == -1)
 		ft_sl_error(9);

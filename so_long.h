@@ -6,14 +6,14 @@
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 18:11:38 by marlean           #+#    #+#             */
-/*   Updated: 2022/02/24 14:52:40 by marlean          ###   ########.fr       */
+/*   Updated: 2022/02/24 16:58:22 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include <mlx.h>
+# include "mlx.h"
 # include <fcntl.h>
 # include <stdio.h>
 # include <math.h>
@@ -22,6 +22,8 @@
 # include <unistd.h>
 # include <errno.h>
 # include "libft/libft.h"
+
+# define BACK "img/sand.XPM"
 
 typedef struct s_coor
 {
@@ -45,6 +47,7 @@ typedef struct s_map
 
 int		ft_sl_gnl(char **line, int fd);
 
+void	ft_init_map(t_map *map_inf);
 void	ft_read_map(t_map *map_inf, char *arg);
 void	ft_sl_error(int errcode);
 void	ft_free_map(t_map *map_inf);
@@ -55,6 +58,11 @@ void	ft_if_sq(t_map *map_inf);
 void	ft_no_walls(t_map *map_inf);
 void	ft_correct_symb(t_map *map_inf);
 void	ft_nsymb(t_map *map_inf);
+
+
+void	ft_game(t_map *map_inf);
+//void	mlx_xpm_file_to_image(void *mlx_ptr, char *filename, int *width, int *height);
+
 
 #endif
 //ERROR CODES

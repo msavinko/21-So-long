@@ -4,7 +4,8 @@ HEADER_SL	=	so_long.h
 
 LIBFT		=	libft/libft.a
 
-SRCS_SL		=	so_long.c map.c valid_utils.c
+SRCS_SL		=	so_long.c create_map.c valid_utils.c\
+				game.c
 
 OBJS_SL		=	$(SRCS_SL:%.c=%.o)
 
@@ -20,7 +21,7 @@ libft		:
 			@make -C libft/
 
 $(NAME_SL)	:	$(OBJS_SL)
-			$(CC) $(OBJS_SL) $(LIBFT) -lmlx -framework OpenGL -framework AppKit -o $@
+			$(CC) $(OBJS_SL) $(LIBFT) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $@
 
 %.o			:	%.c $(LIBFT) $(HEADER_SL)
 			$(CC) $(CFLAGS) -I $(HEADER_SL) -c $< -o $@
