@@ -6,7 +6,7 @@
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 18:11:38 by marlean           #+#    #+#             */
-/*   Updated: 2022/02/24 16:58:22 by marlean          ###   ########.fr       */
+/*   Updated: 2022/02/25 14:26:54 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@
 # include <errno.h>
 # include "libft/libft.h"
 
-# define BACK "img/sand.XPM"
+# define BACK "img/sand.xpm"
+# define PLAY "img/kokopelli.xpm"
+# define SCALE 70
 
 typedef struct s_coor
 {
@@ -61,6 +63,7 @@ void	ft_nsymb(t_map *map_inf);
 
 
 void	ft_game(t_map *map_inf);
+void	ft_draw(t_map *map_inf);
 //void	mlx_xpm_file_to_image(void *mlx_ptr, char *filename, int *width, int *height);
 
 
