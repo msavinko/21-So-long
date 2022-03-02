@@ -6,7 +6,7 @@
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 18:11:20 by marlean           #+#    #+#             */
-/*   Updated: 2022/02/24 16:57:01 by marlean          ###   ########.fr       */
+/*   Updated: 2022/03/02 16:48:09 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 void	ft_sl_error(int errcode)
 {
 	ft_printf("Error\n%s\n", strerror(errcode));
-	// strerror(errcode);
-	// perror("Error message");
 	exit(errcode);
 }
 
@@ -30,7 +28,6 @@ void	ft_init_map(t_map *map_inf)
 	map_inf->read_result = 0;
 }
 
-
 int	main(int argc, char **argv)
 {
 	t_map	map_inf;
@@ -43,9 +40,7 @@ int	main(int argc, char **argv)
 	ft_arg_is_ber(argv[1]);
 	ft_read_map(&map_inf, argv[1]);
 	ft_validation(&map_inf);
-
 	ft_game(&map_inf);
-
 	ft_free_map(&map_inf);
 	return (0);
 }

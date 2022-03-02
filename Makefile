@@ -21,7 +21,7 @@ libft		:
 			@make -C libft/
 
 $(NAME_SL)	:	$(OBJS_SL)
-			$(CC) $(OBJS_SL) $(LIBFT) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $@
+			$(CC) $(OBJS_SL) $(LIBFT) -lmlx -framework OpenGL -framework AppKit -o $@
 
 %.o			:	%.c $(LIBFT) $(HEADER_SL)
 			$(CC) $(CFLAGS) -I $(HEADER_SL) -c $< -o $@
