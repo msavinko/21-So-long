@@ -6,7 +6,7 @@
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 16:55:36 by marlean           #+#    #+#             */
-/*   Updated: 2022/03/03 18:06:58 by marlean          ###   ########.fr       */
+/*   Updated: 2022/03/03 18:40:26 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,14 @@ int	ft_exit(t_map *inf)
 {
 	ft_free_map(inf);
 	exit(0);
+}
+
+void	ft_steps(t_map *inf, int x, int y)
+{
+	inf->p.x = x;
+	inf->p.y = y;
+	inf->moves++;
+	ft_printf("Moves: %d\n", inf->moves);
 }
 
 void	ft_move(t_map *inf, int x, int y)
@@ -31,21 +39,15 @@ void	ft_move(t_map *inf, int x, int y)
 	{
 		ft_file_towin(inf, x, y, PLAY);
 		ft_file_towin(inf, inf->p.x, inf->p.y, BACK);
-		inf->p.x = x;
-		inf->p.y = y;
-		inf->moves++;
-		ft_printf("Moves: %d\n", inf->moves);
+		ft_steps(inf, x, y);
 	}
 	else if (checkstep == 'C')
 	{
 		ft_file_towin(inf, x, y, PLAY);
 		ft_file_towin(inf, inf->p.x, inf->p.y, BACK);
 		--inf->c;
-		inf->p.x = x;
-		inf->p.y = y;
 		inf->map[y][x] = '0';
-		inf->moves++;
-		ft_printf("Moves: %d\n", inf->moves);
+		ft_steps(inf, x, y);
 	}
 }
 

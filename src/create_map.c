@@ -6,7 +6,7 @@
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 10:42:36 by marlean           #+#    #+#             */
-/*   Updated: 2022/03/03 17:46:40 by marlean          ###   ########.fr       */
+/*   Updated: 2022/03/03 18:25:07 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	ft_read_map(t_map *inf, char *arg)
 		ft_sl_first_error("Can not open this file!");
 	inf->read_result = ft_sl_gnl(&inf->line, inf->fd_map);
 	if (inf->read_result <= 0)
-		ft_sl_first_error("Can not read this file, it's empty or corrupted!");
+		ft_sl_first_error("Can not read this file!");
 	inf->map = ft_split(inf->line, '\n');
 	free(inf->line);
 	inf->line = NULL;

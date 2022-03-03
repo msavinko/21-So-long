@@ -6,7 +6,7 @@
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 18:11:38 by marlean           #+#    #+#             */
-/*   Updated: 2022/03/03 17:54:58 by marlean          ###   ########.fr       */
+/*   Updated: 2022/03/03 18:39:43 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 # include <mlx.h>
 # include <fcntl.h>
-//# include <math.h>
-# include <stdio.h>
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -82,6 +80,7 @@ void	ft_check_symb(t_map *inf, int i, int j);
 void	ft_nsymb(t_map *map_inf);
 
 int		ft_exit(t_map *inf);
+void	ft_steps(t_map *inf, int x, int y);
 void	ft_move(t_map *inf, int x, int y);
 int		ft_key_hook(int keycode, t_map *inf);
 void	ft_game(t_map *map_inf);
@@ -91,22 +90,3 @@ void	ft_draw(t_map *map_inf);
 void	ft_drawexit(t_map *inf);
 
 #endif
-//void	ft_draw2(t_map *inf, int i, int j);
-//ERROR CODES
-// man errno
-// 2 ENOENT No such file or directory. 
-// 7 E2BIG Arg list too long. 
-// 8 ENOEXEC Exec format error. 
-// 9 EBADF Bad file descriptor. 
-//12 ENOMEM Cannot allocate memory. 
-// 21 EISDIR Is a directory.
-// 22 EINVAL Invalid argument. 
-
-//images
-//background 64*64
-//player 1/2/3/4
-//walls 64*64
-//collectible 64*64
-//exit block
-//exit open
-//cage 1/2/3
