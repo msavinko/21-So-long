@@ -7,7 +7,7 @@ LIBFT		=	libft/libft.a
 DIR_SL		=	src/
 
 FILES_SL	=	so_long.c create_map.c valid_utils.c\
-				game.c
+				game.c draw.c
 
 SRCS_SL		=	$(addprefix $(DIR_SL), $(FILES_SL))
 
@@ -27,7 +27,7 @@ libft		:
 $(NAME_SL)	:	$(OBJS_SL)
 			$(CC) $(OBJS_SL) $(LIBFT) -lmlx -framework OpenGL -framework AppKit -o $@
 
-%.o			:	%.c $(LIBFT) $(HEADER_SL)
+%.o			:	%.c $(LIBFT) $(HEADER_SL) Makefile
 			$(CC) $(CFLAGS) -I $(INCLUDES_SL) -c $< -o $@
 
 clean		:

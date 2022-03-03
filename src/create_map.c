@@ -6,7 +6,7 @@
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 10:42:36 by marlean           #+#    #+#             */
-/*   Updated: 2022/03/03 11:02:01 by marlean          ###   ########.fr       */
+/*   Updated: 2022/03/03 17:46:40 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,39 +33,36 @@ int	ft_sl_gnl(char **line, int fd)
 	return (result);
 }
 
-void	ft_read_map(t_map *map_inf, char *arg)
+void	ft_arg_is_ber(char *arg)
 {
-	map_inf->fd_map = open(arg, O_RDONLY);
-	if (map_inf->fd_map == -1)
-		ft_sl_error(9);
-	map_inf->read_result = ft_sl_gnl(&map_inf->line, map_inf->fd_map);
-	if (map_inf->read_result <= 0)
-		ft_sl_error(8);
-	map_inf->map = ft_split(map_inf->line, '\n');
-	free(map_inf->line);
-	map_inf->line = NULL;
-	if (map_inf->map == NULL)
-		ft_sl_error(12);
+	int	len;
+
+	if (!arg)
+		ft_sl_first_error("No arguments given");
+	len = ft_strlen(arg);
+	if (strncmp(&arg[len - 4], ".ber", 4))
+		ft_sl_first_error("You are trying to open file, which is not .ber");
 }
 
-void	ft_validation(t_map *map_inf)
+void	ft_read_map(t_map *inf, char *arg)
 {
-	ft_if_sq(map_inf);
-	ft_no_walls(map_inf);
-	ft_correct_symb(map_inf);
-	ft_nsymb(map_inf);
+	inf->fd_map = open(arg, O_RDONLY);
+	if (inf->fd_map == -1)
+		ft_sl_first_error("Can not open this file!");
+	inf->read_result = ft_sl_gnl(&inf->line, inf->fd_map);
+	if (inf->read_result <= 0)
+		ft_sl_first_error("Can not read this file, it's empty or corrupted!");
+	inf->map = ft_split(inf->line, '\n');
+	free(inf->line);
+	inf->line = NULL;
+	if (inf->map == NULL)
+		ft_sl_error("Empty file!", inf);
 }
 
-void	ft_free_map(t_map *map_inf)
+void	ft_validation(t_map *inf)
 {
-	int	i;
-
-	i = 0;
-	while (i < map_inf->map_h)
-	{
-		free(map_inf->map[i]);
-		i++;
-	}	
-	free(map_inf->map);
-	map_inf->map = NULL;
+	ft_if_sq(inf);
+	ft_no_walls(inf);
+	ft_correct_symb(inf);
+	ft_nsymb(inf);
 }
