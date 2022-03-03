@@ -1,11 +1,15 @@
 NAME_SL		=	so_long
 
-HEADER_SL	=	so_long.h
+INCLUDES_SL	=	includes/
+HEADER_SL	=	includes/so_long.h
 
 LIBFT		=	libft/libft.a
+DIR_SL		=	src/
 
-SRCS_SL		=	so_long.c create_map.c valid_utils.c\
+FILES_SL	=	so_long.c create_map.c valid_utils.c\
 				game.c
+
+SRCS_SL		=	$(addprefix $(DIR_SL), $(FILES_SL))
 
 OBJS_SL		=	$(SRCS_SL:%.c=%.o)
 
@@ -24,7 +28,7 @@ $(NAME_SL)	:	$(OBJS_SL)
 			$(CC) $(OBJS_SL) $(LIBFT) -lmlx -framework OpenGL -framework AppKit -o $@
 
 %.o			:	%.c $(LIBFT) $(HEADER_SL)
-			$(CC) $(CFLAGS) -I $(HEADER_SL) -c $< -o $@
+			$(CC) $(CFLAGS) -I $(INCLUDES_SL) -c $< -o $@
 
 clean		:
 			$(RM) $(OBJS_SL)

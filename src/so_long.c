@@ -6,7 +6,7 @@
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 18:11:20 by marlean           #+#    #+#             */
-/*   Updated: 2022/03/02 16:48:09 by marlean          ###   ########.fr       */
+/*   Updated: 2022/03/03 11:01:32 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ void	ft_sl_error(int errcode)
 
 void	ft_init_map(t_map *map_inf)
 {
-	map_inf->fd_map = 0;
-	map_inf->line_len = 0;
 	map_inf->map = NULL;
 	map_inf->line = NULL;
+	map_inf->fd_map = 0;
+	map_inf->line_len = 0;
 	map_inf->map_h = 0;
 	map_inf->read_result = 0;
 }

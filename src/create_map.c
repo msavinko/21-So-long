@@ -6,7 +6,7 @@
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 10:42:36 by marlean           #+#    #+#             */
-/*   Updated: 2022/03/02 16:36:37 by marlean          ###   ########.fr       */
+/*   Updated: 2022/03/03 11:02:01 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,8 @@ void	ft_free_map(t_map *map_inf)
 	int	i;
 
 	i = 0;
-	ft_printf("=========================================\n");
 	while (i < map_inf->map_h)
 	{
-		ft_printf("%s\n", map_inf->map[i]);
 		free(map_inf->map[i]);
 		i++;
 	}	
