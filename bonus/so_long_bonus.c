@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   so_long_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 18:11:20 by marlean           #+#    #+#             */
-/*   Updated: 2022/03/04 09:30:32 by marlean          ###   ########.fr       */
+/*   Updated: 2022/03/04 17:54:53 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	ft_sl_first_error(char *string)
 {
@@ -48,6 +48,9 @@ void	ft_init_map(t_map *inf)
 	inf->map_h = 0;
 	inf->read_result = 0;
 	inf->moves = 0;
+	inf->right = 1;
+	inf->enemy_direction = 1;
+	inf->num_enem = 0;
 }
 
 int	main(int argc, char **argv)
