@@ -6,20 +6,20 @@
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 17:53:45 by marlean           #+#    #+#             */
-/*   Updated: 2022/03/04 18:57:57 by marlean          ###   ########.fr       */
+/*   Updated: 2022/03/09 12:33:23 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-int	ft_exit(t_map **inf, int game)
+int	ft_exit(t_map *inf, int game)
 {
 	if (game == 1)
 		ft_printf("YOU WON!\n");
 	else
 		ft_printf("YOU LOST\n");
-	mlx_destroy_window((*inf)->mlx, (*inf)->win);
-	ft_free_map(*inf);
+	//mlx_destroy_window((*inf)->mlx, (*inf)->win);
+	ft_free_map(inf);
 	exit(0);
 }
 

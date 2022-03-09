@@ -6,7 +6,7 @@
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 10:01:33 by marlean           #+#    #+#             */
-/*   Updated: 2022/03/04 18:30:45 by marlean          ###   ########.fr       */
+/*   Updated: 2022/03/09 11:47:46 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,17 @@ int	ft_my_sprite(t_map *inf)
 	else if (inf->right == 2)
 		ft_animate_koko2(inf);
 	if (inf->num_enem > 0)
-		ft_move_enemy(inf);
+	{
+		if (inf->enemy_direction == 1)
+		{
+			ft_move_enemy1(inf);
+			ft_animate_enemy1(inf);
+		}
+		else if (inf->enemy_direction == 2)
+		{
+			ft_move_enemy2(inf);
+			ft_animate_enemy2(inf);
+		}
+	}
 	return (0);
 }

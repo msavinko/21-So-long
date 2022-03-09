@@ -6,7 +6,7 @@
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 18:11:38 by marlean           #+#    #+#             */
-/*   Updated: 2022/03/04 19:20:53 by marlean          ###   ########.fr       */
+/*   Updated: 2022/03/09 12:33:29 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ void	ft_move(t_map *inf, int x, int y, int right);
 int		ft_key_hook(int keycode, t_map *inf);
 void	ft_game(t_map *map_inf);
 
-int		ft_exit(t_map **inf, int game);
+int		ft_exit(t_map *inf, int game);
 void	ft_steps(t_map *inf, int x, int y);
 void	ft_file_towin(t_map *inf, int x, int y, const char *file);
 void	ft_draw(t_map *map_inf);
@@ -117,10 +117,12 @@ int		ft_my_sprite(t_map *inf);
 
 void	ft_move_left(t_map *inf, int j, int i);
 void	ft_move_right(t_map *inf, int j, int i);
-void	ft_move_enemy(t_map *inf);
+void	ft_move_enemy1(t_map *inf);
+void	ft_move_enemy2(t_map *inf);
 void	ft_check_direction(t_map *inf, int i, int j, int time);
 
 void	ft_animate_enemy1(t_map *inf);
+void	ft_animate_enemy2(t_map *inf);
 int		ft_draw_enemy(t_map *inf);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 16:55:36 by marlean           #+#    #+#             */
-/*   Updated: 2022/03/04 18:38:45 by marlean          ###   ########.fr       */
+/*   Updated: 2022/03/09 12:35:07 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ void	ft_move(t_map *inf, int x, int y, int right)
 	if (right == 2)
 		inf->right = 2;
 	if (checkstep == 'E' && inf->c == 0)
-		ft_exit(&inf, 1);
+		ft_exit(inf, 1);
 	if (checkstep == 'F')
-		ft_exit(&inf, 0);
+		ft_exit(inf, 0);
 	if (checkstep == '1' )
 		return ;
 	else if (checkstep == '0')
@@ -66,7 +66,7 @@ int	ft_key_hook(int keycode, t_map *inf)
 	else if (keycode == RIGHTER || keycode == RIGHT)
 		ft_move(inf, inf->p.x + 1, inf->p.y, 2);
 	else if (keycode == ESCAPE)
-		ft_exit(&inf, 0);
+		ft_exit(inf, 0);
 	if (inf->c == 0)
 		ft_drawexit(inf);
 	return (0);
