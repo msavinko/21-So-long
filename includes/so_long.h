@@ -6,7 +6,7 @@
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 18:11:38 by marlean           #+#    #+#             */
-/*   Updated: 2022/03/04 09:42:20 by marlean          ###   ########.fr       */
+/*   Updated: 2022/03/09 13:48:42 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	ft_correct_symb(t_map *map_inf);
 void	ft_check_symb(t_map *inf, int i, int j);
 void	ft_nsymb(t_map *map_inf);
 
-int		ft_exit(t_map **inf);
+int		ft_exit(t_map *inf);
 void	ft_steps(t_map *inf, int x, int y);
 void	ft_move(t_map *inf, int x, int y);
 int		ft_key_hook(int keycode, t_map *inf);

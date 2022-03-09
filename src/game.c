@@ -6,16 +6,15 @@
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 16:55:36 by marlean           #+#    #+#             */
-/*   Updated: 2022/03/04 18:25:42 by marlean          ###   ########.fr       */
+/*   Updated: 2022/03/09 13:50:01 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	ft_exit(t_map **inf)
+int	ft_exit(t_map *inf)
 {
-	mlx_destroy_window((*inf)->mlx, (*inf)->win);
-	ft_free_map(*inf);
+	ft_free_map(inf);
 	exit(0);
 }
 
@@ -33,7 +32,7 @@ void	ft_move(t_map *inf, int x, int y)
 
 	checkstep = inf->map[y][x];
 	if (checkstep == 'E' && inf->c == 0)
-		ft_exit(&inf);
+		ft_exit(inf);
 	if (checkstep == '1' )
 		return ;
 	else if (checkstep == '0')
@@ -63,7 +62,7 @@ int	ft_key_hook(int keycode, t_map *inf)
 	else if (keycode == RIGHTER || keycode == RIGHT)
 		ft_move(inf, inf->p.x + 1, inf->p.y);
 	else if (keycode == ESCAPE)
-		ft_exit(&inf);
+		ft_exit(inf);
 	if (inf->c == 0)
 		ft_drawexit(inf);
 	return (0);

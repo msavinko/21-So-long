@@ -6,7 +6,7 @@
 /*   By: marlean <marlean@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 17:53:45 by marlean           #+#    #+#             */
-/*   Updated: 2022/03/09 12:33:23 by marlean          ###   ########.fr       */
+/*   Updated: 2022/03/09 13:57:11 by marlean          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int	ft_exit(t_map *inf, int game)
 		ft_printf("YOU WON!\n");
 	else
 		ft_printf("YOU LOST\n");
-	//mlx_destroy_window((*inf)->mlx, (*inf)->win);
 	ft_free_map(inf);
 	exit(0);
 }
